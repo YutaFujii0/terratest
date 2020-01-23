@@ -17,7 +17,7 @@ func TestTerraformBasicExample(t *testing.T) {
 
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
-		TerraformDir: "../examples/01-terraform-basic-example",
+		TerraformDir: "../",
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
@@ -39,7 +39,7 @@ func TestTerraformBasicExample(t *testing.T) {
 	defer terraform.Destroy(t, terraformOptions)
 
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
-	// terraform.InitAndApply(t, terraformOptions)
+	terraform.InitAndApply(t, terraformOptions)
 
 	// Run `terraform output` to get the values of output variables
 	actualTextExample := terraform.Output(t, terraformOptions, "example")

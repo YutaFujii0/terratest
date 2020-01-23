@@ -3,37 +3,40 @@
 # Define these secrets as environment variables
 # ---------------------------------------------------------------------------------------------------------------------
 
-# AWS_ACCESS_KEY_ID
-# AWS_SECRET_ACCESS_KEY
+variable "aws_access_key" {
+  type = string
+}
+variable "aws_secret_key" {
+  type = string
+}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # REQUIRED PARAMETERS
 # You must provide a value for each of these parameters.
 # ---------------------------------------------------------------------------------------------------------------------
 
+
 # ---------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 # These parameters have reasonable defaults.
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "example" {
-  description = "Example variable"
-  default     = "example"
+variable "aws_region" {
+  description = "The AWS region to deploy into"
+  default     = "us-east-1"
 }
 
-variable "example2" {
-  description = "Example variable 2"
-  default     = ""
+variable "instance_name" {
+  description = "The Name tag to set for the EC2 Instance."
+  default     = "terratest-example"
 }
 
-variable "example_list" {
-  description = "An example variable that is a list."
-  type        = list(string)
-  default     = ["test"]
+variable "instance_port" {
+  description = "The port the EC2 Instance should listen on for HTTP requests."
+  default     = 8080
 }
 
-variable "example_map" {
-  description = "An example variable that is a map."
-  type        = map(string)
-  default     = { "example": "test" }
+variable "instance_text" {
+  description = "The text the EC2 Instance should return when it gets an HTTP request."
+  default     = "Hello, World!"
 }

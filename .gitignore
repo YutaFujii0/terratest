@@ -2,3 +2,4 @@ go.sum
 examples/*/.terraform/*
 examples/*/test/go.mod
 examples/*/test/go.sum
+examples/*/*.tfvars
